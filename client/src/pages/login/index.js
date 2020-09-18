@@ -1,7 +1,10 @@
-import React, { useState } from "react"
-import UserForm from "../../components/form"
+import React, { useState } from 'react';
+import UserForm from '../../components/form';
+import { userActions } from '../../actions/userAction';
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
+    const dispatch = useDispatch();
     const [inputs, setInputs] = useState({
         email: "",
         password: ""
@@ -13,6 +16,7 @@ const Login = () => {
     const submitHandle = e => {
         e.preventDefault()
         console.log(inputs)
+        dispatch(userActions.login(inputs))
     }
     return (
         <UserForm

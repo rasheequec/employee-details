@@ -1,7 +1,8 @@
-import {API_URL} from '../helpers/constants';
+import {API_URL, USER_TOKEN} from '../helpers/constants';
 
 export const userService = {
-    signup
+    signup,
+    login
 };
 
 function signup(data) {
@@ -14,6 +15,22 @@ function signup(data) {
     return fetch(`${API_URL}/register`, requestOptions)
         .then(handleResponse)
         .then(user => {
+            return user;
+        });
+}
+
+function login(data) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    };
+
+    return fetch(`${API_URL}/login`, requestOptions)
+        .then(
+            handleResponse)
+        .then(user => {
+            localStorage.setItem(USER_TOKEN, user.token)
             return user;
         });
 }

@@ -13,7 +13,7 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" variant="light" bg="light">
       <Container>
-        <Navbar.Brand href="#">MERN APPLICATION</Navbar.Brand>
+        <Navbar.Brand href="#">REACT APPLICATION</Navbar.Brand>
       </Container>
       <Form inline>
         <Button variant="outline-info" onClick={logoutHandle}>Logout</Button>

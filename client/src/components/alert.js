@@ -11,7 +11,7 @@ const AlertMessage = () => {
         }, 3000);
     }
     return(
-        <div>
+        <div className="alert-wrap">
             {alertReducer.message && <Alert variant={alertReducer.type}>
             {alertReducer.message}
              </Alert>}

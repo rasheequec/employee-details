@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UserForm from '../../components/form';
 import { userActions } from '../../actions/userAction';
 import { useDispatch, useSelector } from 'react-redux';
+import { history } from '../../helpers/history';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -19,6 +20,9 @@ const Login = () => {
         console.log(inputs)
         dispatch(userActions.login(inputs))
     }
+    const redirectTo = () => {
+        history.push('signup')
+    }
     return (
         <UserForm
             title="Signin as Employee"
@@ -31,6 +35,8 @@ const Login = () => {
             changeHandle={changeHandle}
             submitHandle={submitHandle}
             isLoading={isLoading}
+            redirect = "New user? register here"
+            redirectTo={redirectTo}
         />
     )
 }

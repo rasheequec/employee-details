@@ -1,5 +1,6 @@
 html, body, #root, .container {
   height: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 .App{
   height: 100%;
@@ -41,4 +42,19 @@ html, body, #root, .container {
 }
 .search-input {
   width: 400px;
+}
+.alert-wrap{
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+.redirect{
+  color: #5656ff;
+  padding-top: 10px;
+  cursor: pointer;
+}
+.header{
+  text-align: center;
+  padding-bottom: 15px;
+  font-weight: 400;
 }

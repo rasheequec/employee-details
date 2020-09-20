@@ -1,19 +1,16 @@
 import React from "react"
 import { Button, Form, Spinner } from 'react-bootstrap';
 
-const UserForm = ({ title, inputFields, select, buttonText, changeHandle, submitHandle, isLoading }) => {
+const UserForm = ({ title, inputFields, select, buttonText, changeHandle, submitHandle, isLoading, redirect, redirectTo }) => {
     return (
         <div className="form">
             <Form className="form-wrap" onSubmit={submitHandle}>
-                <h3>{title}</h3>
+                <h3 className="header">{title}</h3>
                 {inputFields.map(data => {
                     return (
                         <Form.Group key={data.name}>
                             <Form.Label>{data.label}</Form.Label>
                             <Form.Control type={data.type} name={data.name} placeholder={data.placeholder} onChange={changeHandle} />
-                            <Form.Text className="text-muted">
-                                No fields can be empty.
-                 </Form.Text>
                         </Form.Group>
                     )
                 })}
@@ -32,6 +29,7 @@ const UserForm = ({ title, inputFields, select, buttonText, changeHandle, submit
                     buttonText
                     }
                 </Button>
+                <p className="redirect" onClick={redirectTo}>{redirect}</p>
             </Form>
         </div>
     )

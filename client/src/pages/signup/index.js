@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UserForm from '../../components/form';
 import { userActions } from '../../actions/userAction';
 import { useDispatch, useSelector } from 'react-redux';
+import { history } from '../../helpers/history';
 
 const SignUp = () => {
     const dispatch = useDispatch();
@@ -20,6 +21,9 @@ const SignUp = () => {
         e.preventDefault()
         console.log(inputs)
         dispatch(userActions.signup(inputs))
+    }
+    const redirectTo = () => {
+        history.push('login')
     }
     return (
         <UserForm
@@ -40,6 +44,8 @@ const SignUp = () => {
             changeHandle={changeHandle}
             submitHandle={submitHandle}
             isLoading={isLoading}
+            redirect = "Already registered? login here"
+            redirectTo={redirectTo}
         />
     )
 }

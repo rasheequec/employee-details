@@ -17,15 +17,19 @@ const Login = () => {
     }
     const submitHandle = e => {
         e.preventDefault()
-        console.log(inputs)
+        if(inputs.email && inputs.password){
         dispatch(userActions.login(inputs))
+        }
+        else{
+            alert("No fields can be empty. Please fill and try again")
+        }
     }
     const redirectTo = () => {
         history.push('signup')
     }
     return (
         <UserForm
-            title="Signin as Employee"
+            title="Login as Employee"
             inputFields={[
                 { type: "email", name: "email", placeholder: "Enter email", label: "Email" },
                 { type: "password", name: "password", placeholder: "password", label: "Password" }

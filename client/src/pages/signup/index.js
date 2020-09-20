@@ -11,7 +11,7 @@ const SignUp = () => {
         name: "",
         email: "",
         password: "",
-        designation: ""
+        designation: "HR"
     })
 
     const changeHandle = e => {
@@ -19,8 +19,12 @@ const SignUp = () => {
     }
     const submitHandle = e => {
         e.preventDefault()
-        console.log(inputs)
+        if(inputs.name && inputs.email && inputs.password){
         dispatch(userActions.signup(inputs))
+        }
+        else{
+         alert("No fields can be empty. Please fill and try again")
+        }
     }
     const redirectTo = () => {
         history.push('login')

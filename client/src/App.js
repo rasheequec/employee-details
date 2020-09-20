@@ -7,11 +7,12 @@ import PrivateRoute from './route/private-route';
 import UserForm from './components/form';
 import SignUp from './pages/signup';
 import Login from './pages/login';
-import Home from './pages/home'
-
+import Home from './pages/home';
+import AlertMessage from './components/alert'
 function App() {
   return (
     <div className="App">
+        <AlertMessage />
         <Router history={history}>
         <Switch>
           <Redirect exact from="/" to="login" />

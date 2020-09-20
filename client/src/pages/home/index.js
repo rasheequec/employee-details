@@ -29,7 +29,7 @@ const Home = () => {
     return(
         <Fragment>
         <NavBar />
-        <List employeeData = {employeeData} employeeReducer={employeeReducer} changeHandle={changeHandle} searchText={searchText}/>
+        <List employeeData = {employeeData} employeeReducer={employeeReducer} changeHandle={changeHandle} searchText={searchText} isLoading={employeeReducer.isLoading}/>
         </Fragment>
     )
 }

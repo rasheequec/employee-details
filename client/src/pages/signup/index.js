@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import UserForm from '../../components/form';
 import { userActions } from '../../actions/userAction';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const SignUp = () => {
     const dispatch = useDispatch();
+    const isLoading = useSelector(state => state.user.isLoading)
     const [inputs, setInputs] = useState({
         name: "",
         email: "",
@@ -38,6 +39,7 @@ const SignUp = () => {
             buttonText="Submit"
             changeHandle={changeHandle}
             submitHandle={submitHandle}
+            isLoading={isLoading}
         />
     )
 }

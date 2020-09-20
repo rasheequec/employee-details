@@ -1,5 +1,6 @@
 import { userConstants } from '../helpers/constants';
 import { userService } from '../services/userService';
+import { alertActions } from './alertAction'
 import { history } from '../helpers/history';
 
 export const userActions = {
@@ -15,11 +16,12 @@ function signup(data) {
             .then(
                 user => {
                     dispatch(success(user));
+                    dispatch(alertActions.alertSuccess('You have successfully registered. Please login to continue.'))
                     history.push('login');
                 },
                 error => {
                     dispatch(failure(error));
-                    // dispatch(alertActions.error(error));
+                    dispatch(alertActions.alertError('Something went wrong. Please try again'));
                 }
             );
     };
@@ -36,11 +38,12 @@ function login(data) {
             .then(
                 user => {
                     dispatch(success(user));
+                    dispatch(alertActions.alertSuccess('You have successfully logged in.'))
                     history.push('home');
                 },
                 error => {
+                    dispatch(alertActions.alertError(error))
                     dispatch(failure(error));
-                    // dispatch(alertActions.error(error));
                 }
             );
     };
@@ -55,11 +58,11 @@ function logout(data) {
         userService.logout(data)
             .then(
                 user => {
+                    dispatch(alertActions.alertSuccess('You have successfully logged out.'))
                     history.push('login');
                 },
                 error => {
-                    // dispatch(failure(error));
-                    // dispatch(alertActions.error(error));
+                    dispatch(alertActions.alertError('Something went wrong. Please try again.'))
                 }
             );
     };

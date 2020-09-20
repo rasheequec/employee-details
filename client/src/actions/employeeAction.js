@@ -1,6 +1,5 @@
-import { userConstants, employeeConstants } from '../helpers/constants';
+import { employeeConstants } from '../helpers/constants';
 import { userService } from '../services/userService';
-import { history } from '../helpers/history';
 
 export const employeeActions = {
     fetchDetails

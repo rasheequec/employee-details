@@ -33,3 +33,12 @@ html, body, #root, .container {
   right: 1.5%;
   top: 20%;
 }
+.spinner{
+  position: absolute;
+  top: 35%;
+  right: 50%;
+  color: #3838d6;
+}
+.search-input {
+  width: 400px;
+}

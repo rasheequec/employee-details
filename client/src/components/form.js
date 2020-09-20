@@ -1,7 +1,7 @@
 import React from "react"
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Spinner } from 'react-bootstrap';
 
-const UserForm = ({ title, inputFields, select, buttonText, changeHandle, submitHandle }) => {
+const UserForm = ({ title, inputFields, select, buttonText, changeHandle, submitHandle, isLoading }) => {
     return (
         <div className="form">
             <Form className="form-wrap" onSubmit={submitHandle}>
@@ -27,9 +27,10 @@ const UserForm = ({ title, inputFields, select, buttonText, changeHandle, submit
                         </Form.Group>
                     )
                 })}
-
-                <Button variant="primary" type="submit">
-                    {buttonText}
+                <Button variant="primary" type="submit" style={{minWidth: '100px'}}>
+                    {isLoading ?<Spinner animation="border" size="sm"/> :
+                    buttonText
+                    }
                 </Button>
             </Form>
         </div>

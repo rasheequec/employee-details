@@ -1,12 +1,12 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Spinner } from 'react-bootstrap';
 
-const List = ({searchText, changeHandle, employeeData}) => {
+const List = ({searchText, changeHandle, employeeData, isLoading}) => {
     return(
 <div>
 <div>
     <div className="search-container">
-      <input type="text" placeholder="Search.." name="search" value={searchText} onChange={changeHandle}/>
+      <input className="search-input" type="text" placeholder="Search by name.." name="search" value={searchText} onChange={changeHandle}/>
       <i className="fa fa-search search-icon"></i>
     </div>
   </div>
@@ -19,7 +19,7 @@ const List = ({searchText, changeHandle, employeeData}) => {
       <th>Designation</th>
     </tr>
   </thead>
-  <tbody>
+  {isLoading ? <Spinner className="spinner" animation="grow" /> :<tbody>
     {employeeData.map((data, i) => {
         return(
         <tr key={i}>
@@ -30,7 +30,7 @@ const List = ({searchText, changeHandle, employeeData}) => {
         </tr>
     )
     }) }
-  </tbody>
+  </tbody>}
 </Table>
 </div>
     )

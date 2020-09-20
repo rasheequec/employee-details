@@ -3,6 +3,7 @@ import {API_URL, USER_TOKEN} from '../helpers/constants';
 export const userService = {
     signup,
     login,
+    logout,
     fetchEmployees
 };
 
@@ -33,6 +34,20 @@ function login(data) {
         .then(user => {
             localStorage.setItem(USER_TOKEN, user.token)
             return user;
+        });
+}
+
+function logout(data) {
+    const requestOptions = {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json', 'x-auth': localStorage.getItem(USER_TOKEN)},
+    };
+
+    return fetch(`${API_URL}/logout`, requestOptions)
+        .then(handleResponse)
+        .then(data => {
+            localStorage.clear()
+            return data;
         });
 }
 

@@ -4,12 +4,12 @@ import { history } from '../helpers/history';
 
 export const userActions = {
     signup,
-    login
+    login,
+    logout
 };
 
 function signup(data) {
     return dispatch => {
-        debugger
         dispatch(request({ data }));
         userService.signup(data)
             .then(
@@ -31,7 +31,6 @@ function signup(data) {
 
 function login(data) {
     return dispatch => {
-        debugger
         dispatch(request({ data }));
         userService.login(data)
             .then(
@@ -49,4 +48,19 @@ function login(data) {
     function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
     function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
     function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
+}
+
+function logout(data) {
+    return dispatch => {
+        userService.logout(data)
+            .then(
+                user => {
+                    history.push('login');
+                },
+                error => {
+                    // dispatch(failure(error));
+                    // dispatch(alertActions.error(error));
+                }
+            );
+    };
 }

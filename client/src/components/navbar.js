@@ -1,9 +1,13 @@
 import React from 'react'
 import { Navbar, Container, Form, Button } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { userActions } from '../actions/userAction';
 
 const NavBar = () => {
+  const dispatch = useDispatch();
   const logoutHandle = e => {
     e.preventDefault()
+    dispatch(userActions.logout())
   }
 
   return (

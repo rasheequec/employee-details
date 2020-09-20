@@ -7,7 +7,7 @@ const List = ({searchText, changeHandle, employeeData}) => {
 <div>
     <div className="search-container">
       <input type="text" placeholder="Search.." name="search" value={searchText} onChange={changeHandle}/>
-      <i class="fa fa-search search-icon"></i>
+      <i className="fa fa-search search-icon"></i>
     </div>
   </div>
 <Table striped bordered hover size="sm">
@@ -22,7 +22,7 @@ const List = ({searchText, changeHandle, employeeData}) => {
   <tbody>
     {employeeData.map((data, i) => {
         return(
-        <tr>
+        <tr key={i}>
         <td>{i+1}</td>
         <td>{data.name}</td>
         <td>{data.email}</td>

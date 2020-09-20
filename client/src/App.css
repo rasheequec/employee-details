@@ -23,3 +23,13 @@ html, body, #root, .container {
 .form-wrap{
   width: 40%;
 }
+.search-container {
+  text-align: right;
+  margin: 22px 100px;
+  position: relative;
+}
+.search-icon{
+  position: absolute;
+  right: 1.5%;
+  top: 20%;
+}

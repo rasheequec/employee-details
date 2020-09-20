@@ -2,7 +2,8 @@ import {API_URL, USER_TOKEN} from '../helpers/constants';
 
 export const userService = {
     signup,
-    login
+    login,
+    fetchEmployees
 };
 
 function signup(data) {
@@ -31,6 +32,20 @@ function login(data) {
             handleResponse)
         .then(user => {
             localStorage.setItem(USER_TOKEN, user.token)
+            return user;
+        });
+}
+
+function fetchEmployees() {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-auth': localStorage.getItem(USER_TOKEN) },
+        body: JSON.stringify({})
+    };
+
+    return fetch(`${API_URL}/list`, requestOptions)
+        .then(handleResponse)
+        .then(user => {
             return user;
         });
 }

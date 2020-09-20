@@ -13,3 +13,8 @@ export const userConstants = {
  SIGNUP_REQUEST: 'SIGNUP_REQUEST',
  SIGNUP_FAILURE: 'SIGNUP_FAILURE'
 }
+export const employeeConstants = {
+ REQUEST: 'EMPLOYEE_REQUEST',
+ SUCCESS: 'EMPLOYEE_SUCCESS',
+ FAILURE: 'EMPLOYEE_FAILURE'
+}

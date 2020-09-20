@@ -10,7 +10,7 @@ const List = ({searchText, changeHandle, employeeData, isLoading}) => {
       <i className="fa fa-search search-icon"></i>
     </div>
   </div>
-<Table striped bordered hover size="sm">
+{isLoading ? <Spinner className="spinner" animation="grow" /> : <Table striped bordered hover size="sm">
   <thead>
     <tr>
       <th>Id</th>
@@ -19,7 +19,7 @@ const List = ({searchText, changeHandle, employeeData, isLoading}) => {
       <th>Designation</th>
     </tr>
   </thead>
-  {isLoading ? <Spinner className="spinner" animation="grow" /> :<tbody>
+  <tbody>
     {employeeData.map((data, i) => {
         return(
         <tr key={i}>
@@ -30,8 +30,8 @@ const List = ({searchText, changeHandle, employeeData, isLoading}) => {
         </tr>
     )
     }) }
-  </tbody>}
-</Table>
+  </tbody>
+</Table>}
 </div>
     )
 }

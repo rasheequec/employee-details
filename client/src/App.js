@@ -4,7 +4,6 @@ import { Router, Switch, Redirect } from 'react-router-dom';
 import { history } from './helpers/history';
 import PublicRoute from './route/public-route';
 import PrivateRoute from './route/private-route';
-import UserForm from './components/form';
 import SignUp from './pages/signup';
 import Login from './pages/login';
 import Home from './pages/home';

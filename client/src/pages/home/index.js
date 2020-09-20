@@ -16,7 +16,7 @@ const Home = () => {
 
     useEffect(() => {
         setEmployeeData(employeeReducer.employees)
-    },[employeeReducer.employees])
+    },[employeeReducer])
 
     const changeHandle = e => {
         setSearchText(e.target.value)
